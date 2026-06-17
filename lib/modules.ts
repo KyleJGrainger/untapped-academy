@@ -1179,6 +1179,142 @@ export const MODULES: Module[] = [
       ],
       "exemplar": "Brief: 'Senior PHP Engineer, remote-UK, 5+ yrs Laravel, fintech preferred, £65–75k — shortlist 8 with evidence.' Alfa surfaced 8; I kept Maya (92 fit — 6 yrs Laravel, two fintechs, strong open-source) and Aaron (88 — ex-payments, Go+PHP) but dropped a 90-fit profile whose score leaned on keyword matches with no shipped fintech work. I edited the auto job ad to fix tone and add the client's mission line. Lisa's screens saved me ~4 first calls; I'd still call all three myself before submitting. Risk to watch: the score over-rewards keyword density, so I always open the evidence and never let it auto-reject anyone."
     }
+  },
+  {
+    "slug": "granola",
+    "number": 10,
+    "title": "Granola for Recruiters",
+    "tool": "Granola",
+    "durationMins": 25,
+    "lead": "Granola is an AI notepad for back-to-back meetings — it listens in the background, turns the few notes you type into clear structured notes, and hands you actions and follow-ups the moment a call ends. No bot joins the meeting.",
+    "sections": [
+      {
+        "heading": "What Granola is",
+        "body": [
+          "Granola is an <strong>AI notepad for meetings</strong> (granola.ai). You type as little or as much as you like during a call and it <strong>enhances your notes instantly</strong> using the full context of what was said.",
+          "Crucially, <strong>no bot joins the call</strong> — Granola uses your computer's audio and transcribes in the background, so the conversation stays human. It works with Zoom, Google Meet, Teams, in person, and on the iPhone app.",
+          "It's <strong>private by default</strong>: your notes are yours, and you choose what to share."
+        ]
+      },
+      {
+        "heading": "Before, during and after the call",
+        "body": [
+          "<strong>Before</strong> — Granola syncs with your calendar and preps a Brief for external meetings: who's attending, what you discussed last time, and what matters now.",
+          "<strong>During</strong> — stop choosing between listening and note-taking. Jot a few bullets; Granola fills in the rest from context, so you can be present with the client or candidate.",
+          "<strong>After</strong> — notes, action items and follow-ups are ready the moment the call ends. Have it draft the follow-up email or list your actions in one click."
+        ]
+      },
+      {
+        "heading": "Why \"no bot\" matters for recruiters",
+        "body": [
+          "Candidates and clients relax when there isn't a recording bot staring back at them. Granola lets you capture an intake call, a BD conversation or a candidate interview without changing the dynamic in the room.",
+          "It also works for <strong>in-person</strong> meetings and coffee catch-ups via the phone app — where a meeting bot was never an option."
+        ]
+      },
+      {
+        "heading": "Memory & Chat",
+        "body": [
+          "Every call becomes <strong>searchable memory</strong>. Granola Chat lets you ask across all your notes — e.g. \"what did I promise this client?\" or \"what were the must-have criteria on that role?\" — so nothing falls through the cracks between calls.",
+          "Be specific when you ask: name the meeting and what you want (a summary, the commitments, the must-haves) rather than a vague \"what happened?\"."
+        ]
+      },
+      {
+        "heading": "Privacy & good practice",
+        "body": [
+          "You're handling candidate and client data, so treat notes accordingly: follow your local rules on <strong>recording consent</strong>, keep notes private by default, and never paste sensitive personal data into AI tools that aren't approved.",
+          "Always <strong>read the enhanced notes before you send anything</strong> — the AI is excellent, but it's your name on the follow-up."
+        ]
+      }
+    ],
+    "badPrompt": "what happened in my meetings?",
+    "goodPrompt": "Summarise my call with Rutherford Briant: their must-have criteria, the budget they confirmed, any objections, and exactly what I committed to send and by when.",
+    "rule": "Be present in the room and let Granola capture it — but you own the output: check the consent, check the notes, then send.",
+    "donts": [
+      "Don't record without the consent your jurisdiction or client requires.",
+      "Don't send Granola's follow-up email without reading it first.",
+      "Don't share raw, unedited candidate notes externally — private by default for a reason.",
+      "Don't paste sensitive candidate data into AI tools that aren't approved."
+    ],
+    "quiz": [
+      {
+        "q": "What is Granola?",
+        "options": [
+          "A video-interview platform",
+          "An AI notepad that enhances your meeting notes and captures actions",
+          "An applicant tracking system",
+          "A job-board posting tool"
+        ],
+        "correct": 1,
+        "why": "Granola turns the notes you type into clear, structured notes and surfaces actions and follow-ups."
+      },
+      {
+        "q": "How does Granola capture a meeting?",
+        "options": [
+          "It sends a bot to join the call",
+          "It uses your computer's audio and transcribes in the background — no bot",
+          "You upload a recording afterwards",
+          "It only works if you type every word yourself"
+        ],
+        "correct": 1,
+        "why": "Granola uses your computer audio and stays in the background, so no bot joins."
+      },
+      {
+        "q": "What does Granola do with the few notes you type during a call?",
+        "options": [
+          "Nothing — it only stores them",
+          "Enhances them into clear, structured notes using the meeting's context",
+          "Emails them to all attendees automatically",
+          "Deletes them after the call"
+        ],
+        "correct": 1,
+        "why": "You write a little; Granola fills in the rest from context."
+      },
+      {
+        "q": "What does Granola prepare before an external meeting?",
+        "options": [
+          "An invoice",
+          "A Brief — who's attending, what you discussed last time, what matters now",
+          "A signed contract",
+          "A job advert"
+        ],
+        "correct": 1,
+        "why": "Granola syncs your calendar and preps a Brief so you start prepared."
+      },
+      {
+        "q": "What is Granola's default privacy setting?",
+        "options": [
+          "Public to everyone",
+          "Shared with all attendees automatically",
+          "Private by default — you choose what to share",
+          "Posted to your team channel"
+        ],
+        "correct": 2,
+        "why": "Your notes are private by default; sharing is your choice."
+      },
+      {
+        "q": "Best practice when using an AI notetaker as a recruiter?",
+        "options": [
+          "Send the AI's follow-up email without reading it",
+          "Record everyone regardless of local rules",
+          "Get the consent your jurisdiction requires and review notes before sharing",
+          "Paste candidate data into any AI tool to speed things up"
+        ],
+        "correct": 2,
+        "why": "Consent and a human review protect you and the candidate — your name is on the follow-up."
+      }
+    ],
+    "practical": {
+      "scenario": "Run Granola on a real (or realistic mock) recruitment call — a client intake or a candidate interview. Type only sparse bullets during the call and let Granola enhance them. Afterwards: (1) produce the clean enhanced summary, (2) generate a follow-up email, (3) list your action items, and (4) use Granola Chat to answer one question across your notes (e.g. what you committed to). Submit the summary and follow-up email, plus a 3–4 sentence reflection on what you'd still edit by hand and how you handled consent and privacy.",
+      "rubric": [
+        "Captured the call with sparse notes rather than trying to type everything",
+        "Used Granola's enhancement to produce a clear, structured summary",
+        "Generated a usable follow-up email or action list",
+        "Used Chat or memory to retrieve something specific across notes",
+        "Addressed consent and handled candidate data appropriately",
+        "Reviewed and edited the output before sending — clear, client-ready voice"
+      ],
+      "exemplar": "Intake call with a fintech client: I typed six bullets (role, must-haves, budget, timeline, objections, next steps) and Granola turned them into a clean summary. I had it draft a follow-up confirming the £65–75k band and the two must-haves (Laravel + payments) and list my actions (send 3 profiles by Thursday). Granola Chat answered \"what did I commit to?\" instantly. I'd still tighten the email tone and re-check the salary figure before sending, and I confirmed the client was happy to be noted at the start — notes stay private until I choose to share."
+    }
   }
 ];
 
