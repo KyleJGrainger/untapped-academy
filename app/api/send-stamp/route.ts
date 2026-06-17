@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       : `${name}, you're a verified ${tool} user.`;
 
     const body = isGraduate
-      ? `You've passed all eight Untapped Academy modules. That's the full set: Claude, ChatGPT, SourceWhale, CRM & ATS, LinkedIn Recruiter, PIN, Juicebox, and Clay.\n\nYour Graduate stamp is attached. Add it to your email signature, your LinkedIn 'About' section, or wherever you'd like to wear it.`
+      ? `You've passed all ten Untapped Academy modules. That's the full set: Claude, ChatGPT, SourceWhale, CRM & ATS, LinkedIn Recruiter, PIN, Juicebox, Clay, Alfa, and Granola.\n\nYour Graduate stamp is attached. Add it to your email signature, your LinkedIn 'About' section, or wherever you'd like to wear it.`
       : `You've passed the ${tool} module. Your stamp is attached.\n\nKeep going — there are more modules waiting for you in the Academy.`;
 
     const html = `
