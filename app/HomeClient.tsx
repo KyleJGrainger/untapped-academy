@@ -14,6 +14,9 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
   const [hasIdentity, setHasIdentity] = useState<boolean | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [passcode, setPasscode] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const p = getProgress();
@@ -21,10 +24,28 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
     setHasIdentity(Boolean(p.name && p.email));
   }, []);
 
-  const handleStart = () => {
-    if (!name.trim() || !email.includes("@")) return;
-    setIdentity(name.trim(), email.trim());
-    setHasIdentity(true);
+  const handleStart = async () => {
+    if (!name.trim() || !email.includes("@") || !passcode.trim()) return;
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), passcode: passcode.trim() }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        setError(data.error || "That passcode was not right. Please try again.");
+        setSubmitting(false);
+        return;
+      }
+      setIdentity(name.trim(), email.trim());
+      setHasIdentity(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setSubmitting(false);
+    }
   };
 
   const slugs = modules.map(m => m.slug);
@@ -44,11 +65,9 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
     return (
       <div className="container">
         <div className="eyebrow">Welcome to Untapped Academy</div>
-        <h1>Become a verified <em>AI-fluent</em> recruiter.</h1>
+        <h1>Begin your journey to <em>mastering AI</em> in recruitment.</h1>
         <p className="lead">
-          Every Untapped associate completes this training before working with clients. You&apos;ll cover
-          the ten tools we use daily — and prove you can use them well. Pass each module&apos;s quiz
-          and practical to earn your Untapped Academy stamp.
+          This is where your journey begins. The Untapped Academy is your training ground to become a master of AI, tech and tooling in the recruitment industry — ten modules covering the tools the best desks use every day, each with a quiz and a practical so you can prove you use them well.
         </p>
         <div className="name-input">
           <input
@@ -59,9 +78,14 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
             type="email" placeholder="Your @tryuntapped.com email"
             value={email} onChange={e => setEmail(e.target.value)}
           />
+          <input
+            type="password" placeholder="Access passcode"
+            value={passcode} onChange={e => setPasscode(e.target.value)}
+          />
+          {error && <p style={{ color: "var(--untapped-red)", marginTop: 8 }}>{error}</p>}
           <button className="btn btn-primary" onClick={handleStart}
-                  disabled={!name.trim() || !email.includes("@")}>
-            Start the Academy →
+                  disabled={submitting || !name.trim() || !email.includes("@") || !passcode.trim()}>
+            {submitting ? "Checking…" : "Start the Academy →"}
           </button>
         </div>
       </div>
