@@ -47,7 +47,7 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
         <h1>Become a verified <em>AI-fluent</em> recruiter.</h1>
         <p className="lead">
           Every Untapped associate completes this training before working with clients. You&apos;ll cover
-          the eight tools we use daily — and prove you can use them well. Pass each module&apos;s quiz
+          the ten tools we use daily — and prove you can use them well. Pass each module&apos;s quiz
           and practical to earn your Untapped Academy stamp.
         </p>
         <div className="name-input">
@@ -71,10 +71,10 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
   return (
     <div className="container">
       <div className="eyebrow">Untapped Academy</div>
-      <h1>Eight tools. Eight modules. <em>One certified recruiter.</em></h1>
+      <h1>Ten tools. Ten modules. <em>One certified recruiter.</em></h1>
       <p className="lead">
         Work through them in order. Each module has a quiz and a practical exercise that an AI grader
-        will assess in your voice. Once you pass all eight, you&apos;ll get your full Untapped Academy
+        will assess in your voice. Once you pass all ten, you&apos;ll get your full Untapped Academy
         Graduate stamp.
       </p>
 
