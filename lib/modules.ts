@@ -1044,6 +1044,141 @@ export const MODULES: Module[] = [
       ],
       exemplar: "Workflow:\n\n1. Import 3,000 LinkedIn URLs to a Clay table.\n\n2. Filter step (no enrichment cost): use Clay's filter on the LinkedIn data already imported — location contains 'London' or 'UK', current company headcount 100-2,000 (fintech-sized), current title contains 'head of engineering' or 'VP engineering' or 'engineering manager'. Survivors: ~700 rows.\n\n3. Enrichment columns (run on the 700):\n   • Column A: Waterfall contact enrichment (PIN → Apollo → Clearbit), pulls work email. Cheap source first.\n   • Column B: Current company funding stage (Crunchbase). Confirms Series B-ish fit.\n   • Column C: Tenure in current role (calculated from LinkedIn data).\n\n4. AI scoring column (run on the 700):\n   • Column D: Claude prompt that takes the row's enriched data + the JD, returns a 1-10 fit score plus one-line reasoning. Structured output. Sample on 30 rows first to validate the prompt; once confident, run on all 700.\n\n5. Sort by fit score, take top 150.\n\n6. AI personalisation column (run only on the top 150 to save cost):\n   • Column E: Claude prompt that drafts a personalised opening line for outreach using the candidate's enriched data — current company, tenure, recent post if available.\n\n7. Push step:\n   • Top 150 candidates → CRM (new candidate records, tagged with this role's project ID).\n   • Same 150 → Sourcewhale (new sequence enrollment, with the personalised first line populated into the sequence's first-line token).\n\nCost discipline: column D and E run only on filtered/qualified subsets, not the full 3,000. Sample-first on column D before scaling. No 'just in case' columns; keep schema lean."
     }
+  },
+  {
+    "slug": "alfa",
+    "number": 9,
+    "title": "Alfa for Recruiters",
+    "tool": "Alfa",
+    "durationMins": 25,
+    "lead": "Alfa is an end-to-end AI recruiter — sourcing, job ads, screening and evaluation in one platform. This module shows you how to drive it, and where your judgement still has to take over.",
+    "sections": [
+      {
+        "heading": "What Alfa actually is",
+        "body": [
+          "Alfa (welovealfa.com) isn't a single-point tool like a sourcing plug-in or an outreach sequencer — it runs the <strong>whole pipeline</strong>: sourcing, job advertising, screening, candidate evaluation and two-way ATS sync.",
+          "Its AI assistant is called <strong>Lisa</strong> — the part candidates and recruiters interact with. The pitch is simple: hire better people in a fraction of the time, with the repetitive long-tail running in the background.",
+          "Used well it's leverage. Used lazily it just ships a weak shortlist faster — so the skill is in <strong>driving</strong> it, not blindly trusting it."
+        ]
+      },
+      {
+        "heading": "Sourcing",
+        "body": [
+          "Alfa scans <strong>over 800 million profiles</strong> to match candidates to a role, then reaches out automatically — filling the pipeline from outbound, inbound, enriched data and past applicants.",
+          "Your input is everything: a tight, specific brief in means relevant matches out. Treat the auto-sourced list as a first read of the market, not the finished shortlist."
+        ]
+      },
+      {
+        "heading": "Screening — meet Lisa",
+        "body": [
+          "Candidates can take an <strong>optional audio or video interview with Lisa</strong>. You get a structured summary of their fit before you ever spend a live call on them — the single biggest time-saver.",
+          "Because candidates notice it, framing matters: set expectations, keep it human, and never let the AI step be the whole candidate experience."
+        ]
+      },
+      {
+        "heading": "The fit score",
+        "body": [
+          "Alfa returns an evidence-backed <strong>fit score</strong> built from three dimensions: <strong>skills, experience and role fit</strong> (e.g. a candidate at 92 fit).",
+          "The score lets you triage a list at a glance. It is a <strong>starting point, not a verdict</strong> — always open the evidence behind a score before you action it, especially for borderline candidates or unusually strong profiles."
+        ]
+      },
+      {
+        "heading": "ATS, mobile & compliance",
+        "body": [
+          "Alfa offers <strong>two-way sync</strong> with Greenhouse, Workday, Lever, Ashby and 70+ other ATSs, so candidates flow into the system your client already runs with no re-keying. The full platform also runs in a mobile app.",
+          "It's built to address <strong>NYC Local Law 144, the EU AI Act and GDPR</strong>, and is ISO 27001 certified — but the legal responsibility for fair hiring sits with you, not the tool. Keep a human in the loop and never reject a candidate on a score alone."
+        ]
+      }
+    ],
+    "badPrompt": "Find me some good salespeople.",
+    "goodPrompt": "Source a SaaS Account Executive, London or remote-UK, 3–5 yrs closing experience, £50–60k base, ideally from a Series B–C software company. Prioritise consistent quota attainment and shortlist 10 with fit-score evidence.",
+    "rule": "Alfa does the volume; you make the call. A fit score earns a candidate your attention — it never earns them the offer.",
+    "donts": [
+      "Don't ship Alfa's auto-generated job ad without editing it for tone and accuracy.",
+      "Don't reject or hire on the fit score alone — open the evidence first.",
+      "Don't feed it a vague brief and then blame the shortlist.",
+      "Don't treat the Lisa screen as the whole candidate experience — stay human."
+    ],
+    "quiz": [
+      {
+        "q": "What best describes Alfa?",
+        "options": [
+          "A job-board aggregator",
+          "An end-to-end AI recruiting platform (sourcing, screening, evaluation, ATS sync)",
+          "A CRM for managing client relationships",
+          "A LinkedIn outreach plug-in"
+        ],
+        "correct": 1,
+        "why": "Alfa runs the whole pipeline rather than one isolated step."
+      },
+      {
+        "q": "Roughly how many profiles does Alfa's sourcing scan?",
+        "options": [
+          "8 million",
+          "80 million",
+          "800 million+",
+          "8 billion"
+        ],
+        "correct": 2,
+        "why": "Alfa scans over 800 million profiles to find matches and reaches out automatically."
+      },
+      {
+        "q": "What is \"Lisa\" in Alfa?",
+        "options": [
+          "The billing system",
+          "Alfa's AI assistant that runs the audio/video screening interviews",
+          "A reporting dashboard",
+          "The name of the mobile app only"
+        ],
+        "correct": 1,
+        "why": "Lisa is Alfa's AI recruiter — candidates take an optional audio or video screen with her."
+      },
+      {
+        "q": "Alfa's fit score is built from which three dimensions?",
+        "options": [
+          "Salary, location, notice period",
+          "Skills, experience, role fit",
+          "Speed, cost, volume",
+          "Education, references, availability"
+        ],
+        "correct": 1,
+        "why": "The evidence-backed score combines skills, experience and role fit."
+      },
+      {
+        "q": "How does Alfa work with a client's existing systems?",
+        "options": [
+          "Export to CSV only",
+          "It replaces the client's ATS entirely",
+          "Two-way sync with Greenhouse, Workday, Lever, Ashby and 70+ ATSs",
+          "No integrations — it's standalone"
+        ],
+        "correct": 2,
+        "why": "Alfa syncs both ways with 70+ applicant tracking systems."
+      },
+      {
+        "q": "Which statement about the fit score is correct?",
+        "options": [
+          "A high score means no review is needed",
+          "It's a triage starting point — review the evidence and keep a human in the loop",
+          "It replaces the screening interview",
+          "Reject anyone below a fixed score with no further checks"
+        ],
+        "correct": 1,
+        "why": "A score must never be the sole basis for a decision — both bad practice and a compliance risk (NYC 144 / EU AI Act / GDPR)."
+      }
+    ],
+    "practical": {
+      "scenario": "Take a live role you're working (or a realistic mock) and run it through Alfa end to end: write a tight brief, generate and then edit the job ad, run a sourcing search, and trigger (or simulate) a Lisa screen. Produce a shortlist of 3 candidates with their fit scores. For each, write 2–3 lines on whether you agree with the score and what the evidence shows. Finish with a 3–4 sentence reflection: what Alfa saved you, what you'd still do by hand, and one risk you'd watch for.",
+      "rubric": [
+        "Wrote a specific, well-scoped brief rather than a vague one",
+        "Edited the AI-generated job ad rather than shipping it raw",
+        "Used the full pipeline (sourcing, screen, evaluation), not just sourcing",
+        "Interrogated at least one fit score against its evidence instead of accepting it",
+        "Showed awareness that the human and compliance stay in the loop",
+        "Wrote in a clear, confident, client-ready voice"
+      ],
+      "exemplar": "Brief: 'Senior PHP Engineer, remote-UK, 5+ yrs Laravel, fintech preferred, £65–75k — shortlist 8 with evidence.' Alfa surfaced 8; I kept Maya (92 fit — 6 yrs Laravel, two fintechs, strong open-source) and Aaron (88 — ex-payments, Go+PHP) but dropped a 90-fit profile whose score leaned on keyword matches with no shipped fintech work. I edited the auto job ad to fix tone and add the client's mission line. Lisa's screens saved me ~4 first calls; I'd still call all three myself before submitting. Risk to watch: the score over-rewards keyword density, so I always open the evidence and never let it auto-reject anyone."
+    }
   }
 ];
 
