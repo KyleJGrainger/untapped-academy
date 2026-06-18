@@ -22,16 +22,23 @@ export async function POST(req: NextRequest) {
     const svg = generateStampSvg({ name, tool, date, certId, variant });
 
     const isGraduate = variant === "graduate";
+    const isCraft = variant === "craft";
 
-    const subject = isGraduate
+    const subject = isCraft
+      ? `Your Craft of Recruitment certificate`
+      : isGraduate
       ? `Your Untapped Academy Graduate stamp`
       : `Your Untapped Academy stamp — ${tool}`;
 
-    const heading = isGraduate
+    const heading = isCraft
+      ? `${name}, you're a Craft of Recruitment graduate.`
+      : isGraduate
       ? `${name}, you're an Untapped Academy Graduate.`
       : `${name}, you're a verified ${tool} user.`;
 
-    const body = isGraduate
+    const body = isCraft
+      ? `You've completed all three modules of the Untapped Craft of Recruitment advanced course — sourcing & Boolean search, approaching candidates, and recruitment fundamentals.\n\nYour Craft of Recruitment Advanced Course Graduate certificate is attached. Wear it with pride.`
+      : isGraduate
       ? `You've passed all ten Untapped Academy modules. That's the full set: Claude, ChatGPT, SourceWhale, CRM & ATS, LinkedIn Recruiter, PIN, Juicebox, Clay, Alfa, and Granola.\n\nYour Graduate stamp is attached. Add it to your email signature, your LinkedIn 'About' section, or wherever you'd like to wear it.`
       : `You've passed the ${tool} module. Your stamp is attached.\n\nKeep going — there are more modules waiting for you in the Academy.`;
 
