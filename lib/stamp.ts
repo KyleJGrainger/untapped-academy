@@ -13,7 +13,7 @@ export type StampInput = {
   tool: string;          // e.g. "Claude"
   date: string;          // formatted date string e.g. "19 May 2026"
   certId: string;        // e.g. "UA-A8F3X1"
-  variant?: "module" | "graduate"; // graduate = final all-8-passed cert
+  variant?: "module" | "graduate" | "craft"; // graduate = final all-8-passed cert
 };
 
 export function generateStampSvg({
@@ -24,9 +24,10 @@ export function generateStampSvg({
   variant = "module"
 }: StampInput): string {
   const isGraduate = variant === "graduate";
-  const topLabel = isGraduate ? "UNTAPPED · ACADEMY · GRADUATE" : "UNTAPPED · ACADEMY";
+  const isCraft = variant === "craft";
+  const topLabel = isCraft ? "THE CRAFT OF RECRUITMENT" : isGraduate ? "UNTAPPED · ACADEMY · GRADUATE" : "UNTAPPED · ACADEMY";
   const middleLabel = isGraduate ? "CERTIFIED" : "CERTIFIED";
-  const subLabel = isGraduate ? "IS A FULL UNTAPPED ACADEMY GRADUATE" : "IS A VERIFIED USER OF";
+  const subLabel = isCraft ? "ADVANCED COURSE GRADUATE" : isGraduate ? "IS A FULL UNTAPPED ACADEMY GRADUATE" : "IS A VERIFIED USER OF";
   return `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
   <defs>
     <linearGradient id="heat" x1="0%" y1="0%" x2="100%" y2="100%">
