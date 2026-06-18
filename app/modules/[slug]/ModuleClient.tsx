@@ -107,15 +107,31 @@ export default function ModuleClient({ module, nextSlug }: { module: Module; nex
     );
   }
 
-  // stamp
+  // completion stage
+  const isCraft = module.number > 10;
+  if (isCraft) {
+    const craftNextHref = nextSlug ? "/modules/" + nextSlug : "/craft-complete";
+    const craftNextLabel = nextSlug ? "Next module →" : "Claim your Craft of Recruitment certificate →";
+    return (
+      <div className="container">
+        <div className="eyebrow">Module {String(module.number).padStart(2, "0")} complete</div>
+        <h2 style={{ fontSize: 36 }}>Nice work.</h2>
+        <p className="lead">The Craft of Recruitment block is certified as a set — finish all three modules to earn your single Craft of Recruitment certificate.</p>
+        <Link href={craftNextHref} className="btn btn-primary">{craftNextLabel}</Link>
+      </div>
+    );
+  }
+
+  const aiNextHref = module.number >= 10 ? "/complete" : "/modules/" + nextSlug;
+  const aiNextLabel = module.number >= 10 ? "Claim your Graduate stamp →" : "Next module →";
   return (
     <div className="container">
       <Stamp
         name={name}
         tool={module.tool}
         variant="module"
-        nextHref={nextSlug ? `/modules/${nextSlug}` : "/complete"}
-        nextLabel={nextSlug ? "Next module →" : "Claim your Graduate stamp →"}
+        nextHref={aiNextHref}
+        nextLabel={aiNextLabel}
         email={email}
       />
     </div>
