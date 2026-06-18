@@ -1315,6 +1315,377 @@ export const MODULES: Module[] = [
       ],
       "exemplar": "Intake call with a fintech client: I typed six bullets (role, must-haves, budget, timeline, objections, next steps) and Granola turned them into a clean summary. I had it draft a follow-up confirming the £65–75k band and the two must-haves (Laravel + payments) and list my actions (send 3 profiles by Thursday). Granola Chat answered \"what did I commit to?\" instantly. I'd still tighten the email tone and re-check the salary figure before sending, and I confirmed the client was happy to be noted at the start — notes stay private until I choose to share."
     }
+  },
+  {
+    "slug": "sourcing-boolean",
+    "number": 11,
+    "title": "Sourcing & Boolean Search",
+    "tool": "Sourcing & Boolean",
+    "durationMins": 30,
+    "lead": "Finding the right people is the engine of recruitment. This module teaches you to search like a pro — precise Boolean strings, the best places to look, and a repeatable sourcing rhythm.",
+    "sections": [
+      {
+        "heading": "Where great candidates actually are",
+        "body": [
+          "Outbound (LinkedIn, GitHub, communities), inbound (job boards, your careers page), and the goldmine everyone forgets: <strong>your own ATS and past applicants</strong>. Referrals from good candidates are some of the strongest leads you'll get.",
+          "Don't live on one platform. The best hires are often the ones your competitors never see because they only searched LinkedIn."
+        ]
+      },
+      {
+        "heading": "Boolean basics",
+        "body": [
+          "<strong>AND</strong> narrows (both terms must appear). <strong>OR</strong> widens (either term). <strong>NOT</strong> (or a minus sign) excludes. <strong>\"Quotes\"</strong> search an exact phrase. <strong>(Parentheses)</strong> group logic.",
+          "Example: (\"software engineer\" OR \"backend developer\") AND (Python OR Go) AND London NOT recruiter."
+        ]
+      },
+      {
+        "heading": "Building & refining a string",
+        "body": [
+          "Start broad, then tighten: add must-have skills with AND, capture synonyms with OR, and strip noise with NOT. Read the first page of results and adjust — sourcing is iterative, not one-and-done."
+        ]
+      },
+      {
+        "heading": "A sourcing rhythm",
+        "body": [
+          "Time-box it, work in batches, and track who you've contacted so nobody slips through. A steady daily sourcing habit beats occasional frantic bursts every time."
+        ]
+      }
+    ],
+    "badPrompt": "developer london",
+    "goodPrompt": "(\"software engineer\" OR \"backend developer\") AND (Python OR Go) AND London NOT recruiter",
+    "rule": "A great search is specific enough to cut the noise but broad enough not to miss the hidden gem — refine, don't guess.",
+    "donts": [
+      "Don't rely on a single source — check your ATS and past applicants too.",
+      "Don't build a string so narrow you filter out great people.",
+      "Don't spray-and-pray; quality of search beats quantity of results.",
+      "Don't forget to iterate when results look thin or noisy."
+    ],
+    "quiz": [
+      {
+        "q": "What does AND do in a Boolean search?",
+        "options": [
+          "Widens results to either term",
+          "Narrows results — both terms must appear",
+          "Excludes a term",
+          "Searches an exact phrase"
+        ],
+        "correct": 1,
+        "why": "AND requires every joined term to be present, narrowing your results."
+      },
+      {
+        "q": "What do quotation marks do?",
+        "options": [
+          "Exclude a phrase",
+          "Search for an exact phrase",
+          "Group logic",
+          "Nothing"
+        ],
+        "correct": 1,
+        "why": "\"Quotes\" match the exact phrase inside them."
+      },
+      {
+        "q": "What does NOT (or a minus sign) do?",
+        "options": [
+          "Adds a synonym",
+          "Requires a term",
+          "Excludes a term",
+          "Sorts results"
+        ],
+        "correct": 2,
+        "why": "NOT removes results containing that term — great for stripping out noise like \"recruiter\"."
+      },
+      {
+        "q": "Why use parentheses?",
+        "options": [
+          "To exclude terms",
+          "To group terms and control the logic, e.g. (A OR B) AND C",
+          "To search a phrase",
+          "They do nothing in Boolean"
+        ],
+        "correct": 1,
+        "why": "Parentheses group terms so your OR/AND logic behaves the way you intend."
+      },
+      {
+        "q": "Your search returns too few results. Best first move?",
+        "options": [
+          "Add more AND terms",
+          "Broaden it — add OR synonyms or remove a filter",
+          "Give up",
+          "Add more NOT terms"
+        ],
+        "correct": 1,
+        "why": "Too few results means it's too narrow — widen with synonyms or fewer constraints."
+      },
+      {
+        "q": "An overlooked, high-quality source of candidates?",
+        "options": [
+          "Random cold lists",
+          "Your own ATS and past applicants",
+          "Competitor adverts",
+          "Spam folders"
+        ],
+        "correct": 1,
+        "why": "People who already applied or were placed are warm, known and fast to re-engage."
+      }
+    ],
+    "practical": {
+      "scenario": "Take a live role and build a Boolean string for it. Run it on LinkedIn or a job board, then return 5 candidates with one line each on why they fit — and note how you'd refine the string next time. Submit your string, the 5 names/profiles and your reasoning.",
+      "rubric": [
+        "Used AND / OR / NOT correctly",
+        "Used quotes and/or parentheses appropriately",
+        "Sourced from more than one place or considered the ATS",
+        "Explained why each candidate fits the brief",
+        "Showed how they'd iterate the search",
+        "Clear, professional write-up"
+      ],
+      "exemplar": "For a \"Senior PHP Engineer, London\": (\"PHP developer\" OR \"software engineer\") AND (Laravel OR Symfony) AND London NOT recruiter. Returned ~40; I kept 5 with shipped Laravel work and fintech exposure. Next pass I'd add OR \"backend engineer\" to widen, and NOT agency to cut rec2rec noise. I also checked our ATS and found two past applicants worth re-contacting."
+    }
+  },
+  {
+    "slug": "approaching-candidates",
+    "number": 12,
+    "title": "Approaching Candidates",
+    "tool": "Candidate Approach",
+    "durationMins": 25,
+    "lead": "Sourcing finds them; your approach wins them. This module is about outreach that actually gets replies — personal, relevant and human.",
+    "sections": [
+      {
+        "heading": "Why most outreach fails",
+        "body": [
+          "Most messages are generic, all about the recruiter, and give the candidate no reason to reply. If it reads like a template, it gets deleted like one."
+        ]
+      },
+      {
+        "heading": "The anatomy of a great message",
+        "body": [
+          "Four parts: a <strong>personal hook</strong> (something specific about them), <strong>why them</strong> (why they're a fit), <strong>what's in it for them</strong> (framed around their goals, not yours), and a <strong>low-friction ask</strong> (a quick chat — not \"send your full CV\")."
+        ]
+      },
+      {
+        "heading": "Subject lines & openers",
+        "body": [
+          "Keep subject lines short, specific and a little curious. Your opening line should prove you actually looked at their profile — not that you found their email."
+        ]
+      },
+      {
+        "heading": "Channels & follow-up",
+        "body": [
+          "Use the channel they'll actually see — LinkedIn, email or phone. And follow up: a large share of positive replies come from a polite second or third message, not the first."
+        ]
+      }
+    ],
+    "badPrompt": "Hi, I have a great opportunity, are you interested? Send me your CV.",
+    "goodPrompt": "Hi Maya — saw you've scaled two fintech teams from scratch. I'm working with a Series B doing exactly that, and your 0→1 experience is precisely what they're missing. Worth a quick chat this week?",
+    "rule": "Make every message about them, not you — earn the reply before you ask for the CV.",
+    "donts": [
+      "Don't send generic blasts that could go to anyone.",
+      "Don't lead with \"send your CV\" — earn the conversation first.",
+      "Don't write an essay; respect their time.",
+      "Don't give up after one message — follow up politely."
+    ],
+    "quiz": [
+      {
+        "q": "The biggest reason cold outreach gets ignored?",
+        "options": [
+          "It's too short",
+          "It's generic and all about the recruiter",
+          "It's sent on a Monday",
+          "It uses the candidate's name"
+        ],
+        "correct": 1,
+        "why": "Generic, recruiter-centric messages give no reason to reply."
+      },
+      {
+        "q": "What should a strong opener do?",
+        "options": [
+          "List the salary",
+          "Show you know something specific about them",
+          "Ask for the CV immediately",
+          "Explain your agency's history"
+        ],
+        "correct": 1,
+        "why": "A specific, personal hook proves you actually looked at them."
+      },
+      {
+        "q": "\"What's in it for them\" means…",
+        "options": [
+          "Talk about your targets",
+          "Frame the opportunity around the candidate's goals",
+          "Offer the lowest salary",
+          "Describe the client's office"
+        ],
+        "correct": 1,
+        "why": "Candidates reply when the message speaks to what they want."
+      },
+      {
+        "q": "Where do many positive replies actually come from?",
+        "options": [
+          "The first message only",
+          "The follow-up message",
+          "Never following up",
+          "Mass emails"
+        ],
+        "correct": 1,
+        "why": "A polite follow-up often gets the reply the first message didn't."
+      },
+      {
+        "q": "The best first ask in outreach?",
+        "options": [
+          "\"Send me your full CV and references\"",
+          "A low-friction next step, like a quick chat",
+          "\"Apply on our website\"",
+          "\"Call me right now\""
+        ],
+        "correct": 1,
+        "why": "A small, easy ask gets far more yeses than a big one."
+      },
+      {
+        "q": "A good subject line is…",
+        "options": [
+          "Long and detailed",
+          "Short, specific and a little curious",
+          "All capitals",
+          "Generic like \"Opportunity\""
+        ],
+        "correct": 1,
+        "why": "Short, specific and curious earns the open."
+      }
+    ],
+    "practical": {
+      "scenario": "Pick a real candidate you'd approach for a live role. Write your first outreach message and a follow-up message. Submit both, plus one line on which channel you'd use and why.",
+      "rubric": [
+        "Personalised, specific hook (not generic)",
+        "Framed value around the candidate's goals",
+        "Clear, low-friction ask",
+        "Concise and easy to read",
+        "Includes a genuine follow-up",
+        "Professional, human tone"
+      ],
+      "exemplar": "First message opens with a specific detail from her profile (scaled two fintech teams), frames the role around her 0→1 strength, and asks for a 15-minute chat — no CV demand. Follow-up three days later adds one new hook (the team's mission) and a soft \"happy to share details either way.\" I'd use LinkedIn first as that's where she's active, then email as backup."
+    }
+  },
+  {
+    "slug": "recruitment-fundamentals",
+    "number": 13,
+    "title": "Recruitment Fundamentals",
+    "tool": "Recruitment Fundamentals",
+    "durationMins": 30,
+    "lead": "The mindset and habits that separate good recruiters from great ones — turning every candidate into a client, mining every conversation for commercial gold, and interviewing to actually get what you need.",
+    "sections": [
+      {
+        "heading": "The recruitment lifecycle, fast",
+        "body": [
+          "Brief → source → engage → interview & shortlist → offer → placement → aftercare. Value is won or lost at every stage, but especially in the quality of your brief and the strength of your candidate relationships."
+        ]
+      },
+      {
+        "heading": "Every candidate is a client",
+        "body": [
+          "Today's candidate is tomorrow's hiring manager. Treat <strong>everyone</strong> like a future client — be useful, be honest, stay in touch — and ask who's hiring around them. Your next vacancy often comes from a candidate you placed or even one you didn't."
+        ]
+      },
+      {
+        "heading": "Commercial data in every conversation",
+        "body": [
+          "Every call is market intelligence. Listen for and ask about: is their team growing, who are they losing or hiring, what tools and competitors are in play, where's the pain. <strong>Log it</strong> — that's the raw material of business development."
+        ]
+      },
+      {
+        "heading": "Interview to get what you need",
+        "body": [
+          "Open up, then probe. Ask open questions, then dig past the first answer. Always qualify the essentials — <strong>motivation, notice period and salary</strong> — so you never waste a process on a candidate who was never going to move."
+        ]
+      }
+    ],
+    "badPrompt": "So, are you looking for a new job?",
+    "goodPrompt": "Walk me through what would have to be true for you to leave your current role — and what nearly made you leave in the last 12 months?",
+    "rule": "Every conversation should leave you with a candidate, a lead, or commercial intel — ideally all three.",
+    "donts": [
+      "Don't treat candidates as one-time transactions.",
+      "Don't end a call without learning something commercial.",
+      "Don't accept the first surface-level answer — dig deeper.",
+      "Don't skip qualifying motivation, notice and money."
+    ],
+    "quiz": [
+      {
+        "q": "\"Every candidate is a client\" means…",
+        "options": [
+          "Charge candidates a fee",
+          "Today's candidate may be tomorrow's hiring manager or source of business",
+          "Only talk to senior people",
+          "Candidates and clients are the same call"
+        ],
+        "correct": 1,
+        "why": "Relationships compound — a candidate today can be a client or referrer tomorrow."
+      },
+      {
+        "q": "An example of commercial data from a candidate call?",
+        "options": [
+          "Their favourite colour",
+          "Their team is growing and they're hiring two more",
+          "The weather",
+          "Their commute"
+        ],
+        "correct": 1,
+        "why": "Hiring plans, attrition and competitor moves are pure business-development gold."
+      },
+      {
+        "q": "The best type of question to start an interview?",
+        "options": [
+          "A yes/no question",
+          "An open question, then probe deeper",
+          "A salary ultimatum",
+          "A trick question"
+        ],
+        "correct": 1,
+        "why": "Open questions get them talking; probing gets you the truth."
+      },
+      {
+        "q": "What should you always qualify?",
+        "options": [
+          "Star sign and hobbies",
+          "Motivation, notice period and salary expectations",
+          "Only their CV",
+          "Their LinkedIn follower count"
+        ],
+        "correct": 1,
+        "why": "Motivation, notice and money decide whether a placement is even possible."
+      },
+      {
+        "q": "A candidate gives a vague, surface answer. You should…",
+        "options": [
+          "Move on",
+          "Dig deeper with a follow-up question",
+          "End the call",
+          "Assume the best"
+        ],
+        "correct": 1,
+        "why": "The real insight is usually one good follow-up question away."
+      },
+      {
+        "q": "A strong recruiter ends every conversation with…",
+        "options": [
+          "Nothing in particular",
+          "A candidate, a lead, or commercial intel",
+          "Just a thank you",
+          "A lower fee"
+        ],
+        "correct": 1,
+        "why": "Every conversation should move your desk forward in at least one way."
+      }
+    ],
+    "practical": {
+      "scenario": "Run (or role-play) a candidate call, then write it up: a short candidate summary, one piece of commercial data or a business lead you extracted, and your qualifying notes (motivation, notice period, salary). Finish with the next step you'd take.",
+      "rubric": [
+        "Treated the candidate as a relationship, not a transaction",
+        "Extracted a genuine commercial lead or market insight",
+        "Used open questions and at least one probing follow-up",
+        "Qualified motivation, notice and salary",
+        "Defined a clear next step",
+        "Clear, professional write-up"
+      ],
+      "exemplar": "Summary: senior PHP engineer, open to move for scope and remote flexibility. Commercial data: her team lost two engineers last quarter and the EM is \"quietly hiring\" — logged the EM as a BD lead. Qualifying: motivated by tech leadership (not money), 1 month notice, £70–75k. Probing on \"why now\" surfaced a reorg she's unhappy about. Next step: send two roles by Friday and connect with the EM on LinkedIn."
+    }
   }
 ];
 
