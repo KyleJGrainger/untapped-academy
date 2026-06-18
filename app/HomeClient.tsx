@@ -60,6 +60,7 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
   const aiIdx = blockIdx(aiModules);
   const craftIdx = blockIdx(craftModules);
   const aiComplete = aiIdx === aiModules.length;
+  const craftComplete = craftModules.length > 0 && craftIdx === craftModules.length;
 
   const renderGrid = (list: ModSummary[], curIdx: number) => (
     <div className="modules-grid">
@@ -159,6 +160,9 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
             Beyond the tools — the human skills that make a great recruiter. Optional, but this is where good becomes exceptional.
           </p>
           {renderGrid(craftModules, craftIdx)}
+          {craftComplete && (
+            <Link href="/craft-complete" className="btn btn-primary">Claim your Craft of Recruitment certificate →</Link>
+          )}
         </div>
       )}
     </div>
