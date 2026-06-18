@@ -16,7 +16,7 @@ export default function CompleteClient() {
     const p = getProgress();
     setName(p.name || "");
     setEmail(p.email || "");
-    setAllComplete(MODULES.every(m => p.completed.includes(m.slug)));
+    setAllComplete(MODULES.filter((m) => m.number <= 10).every(m => p.completed.includes(m.slug)));
     setLoaded(true);
   }, []);
 
