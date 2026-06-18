@@ -8,7 +8,7 @@ type Props = {
   name: string;
   email: string;
   tool: string;
-  variant: "module" | "graduate";
+  variant: "module" | "graduate" | "craft";
   nextHref: string;
   nextLabel: string;
 };
