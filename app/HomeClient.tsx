@@ -49,13 +49,48 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
   };
 
   const slugs = modules.map(m => m.slug);
-  const currentIdx = (() => {
-    for (let i = 0; i < modules.length; i++) {
-      if (!completed.includes(modules[i].slug)) return i;
+  const aiModules = modules.filter((m) => m.number <= 10);
+  const craftModules = modules.filter((m) => m.number > 10);
+  const blockIdx = (list: ModSummary[]) => {
+    for (let i = 0; i < list.length; i++) {
+      if (!completed.includes(list[i].slug)) return i;
     }
-    return modules.length; // all done
-  })();
-  const allComplete = currentIdx === modules.length;
+    return list.length;
+  };
+  const aiIdx = blockIdx(aiModules);
+  const craftIdx = blockIdx(craftModules);
+  const aiComplete = aiIdx === aiModules.length;
+
+  const renderGrid = (list: ModSummary[], curIdx: number) => (
+    <div className="modules-grid">
+      {list.map((m, i) => {
+        const done = completed.includes(m.slug);
+        const isCurrent = i === curIdx;
+        const locked = i > curIdx;
+        const classes = "module-card " + (done ? "complete" : isCurrent ? "current" : locked ? "locked" : "");
+        const Inner = (
+          <>
+            <div className={"m-badge " + (done ? "complete-badge" : isCurrent ? "current-badge" : "locked-badge")}>
+              {done ? "Complete" : isCurrent ? "Current" : "Locked"}
+            </div>
+            <div className="m-num">Module {String(m.number).padStart(2, "0")}</div>
+            <div className="m-title">{m.title}</div>
+            <div className="m-meta">
+              {m.durationMins} min &middot; {m.quizCount} quiz &middot; {m.practicalCount} practical
+            </div>
+          </>
+        );
+        if (locked) {
+          return <div key={m.slug} className={classes}>{Inner}</div>;
+        }
+        return (
+          <Link key={m.slug} href={"/modules/" + m.slug} className={classes}>
+            {Inner}
+          </Link>
+        );
+      })}
+    </div>
+  );
 
   if (hasIdentity === null) {
     return <div className="container"><p style={{ color: "var(--black-40)" }}>Loading…</p></div>;
@@ -102,45 +137,29 @@ export default function HomeClient({ modules }: { modules: ModSummary[] }) {
         Graduate stamp.
       </p>
 
-      <div className="modules-grid">
-        {modules.map((m, i) => {
-          const done = completed.includes(m.slug);
-          const isCurrent = i === currentIdx;
-          const locked = i > currentIdx;
-          const classes = `module-card ${done ? "complete" : isCurrent ? "current" : locked ? "locked" : ""}`;
-          const Inner = (
-            <>
-              <div className={`m-badge ${done ? "complete-badge" : isCurrent ? "current-badge" : "locked-badge"}`}>
-                {done ? "Complete" : isCurrent ? "Current" : "Locked"}
-              </div>
-              <div className="m-num">Module {String(m.number).padStart(2, "0")}</div>
-              <div className="m-title">{m.title}</div>
-              <div className="m-meta">
-                {m.durationMins} min &middot; {m.quizCount} quiz &middot; {m.practicalCount} practical
-              </div>
-            </>
-          );
-          if (locked) {
-            return <div key={m.slug} className={classes}>{Inner}</div>;
-          }
-          return (
-            <Link key={m.slug} href={`/modules/${m.slug}`} className={classes}>
-              {Inner}
-            </Link>
-          );
-        })}
-      </div>
+      {renderGrid(aiModules, aiIdx)}
 
-      {allComplete ? (
+      {aiComplete ? (
         <Link href="/complete" className="btn btn-primary">Claim your Graduate stamp →</Link>
-      ) : currentIdx > 0 ? (
-        <Link href={`/modules/${modules[currentIdx].slug}`} className="btn btn-primary">
-          Continue to Module {String(modules[currentIdx].number).padStart(2, "0")} →
+      ) : aiIdx > 0 ? (
+        <Link href={"/modules/" + aiModules[aiIdx].slug} className="btn btn-primary">
+          Continue to Module {String(aiModules[aiIdx].number).padStart(2, "0")} →
         </Link>
       ) : (
-        <Link href={`/modules/${modules[0].slug}`} className="btn btn-primary">
+        <Link href={"/modules/" + aiModules[0].slug} className="btn btn-primary">
           Start Module 01 →
         </Link>
+      )}
+
+      {craftModules.length > 0 && (
+        <div style={{ marginTop: 56 }}>
+          <div className="eyebrow">Advanced track</div>
+          <h2 style={{ fontSize: 28, fontWeight: 700, margin: "8px 0 0", letterSpacing: "-0.01em" }}>The Craft of Recruitment</h2>
+          <p className="lead">
+            Beyond the tools — the human skills that make a great recruiter. Optional, but this is where good becomes exceptional.
+          </p>
+          {renderGrid(craftModules, craftIdx)}
+        </div>
       )}
     </div>
   );
